@@ -5,7 +5,8 @@
   tasks:
     - name: Apagado servicio apache
       service: name=httpd state=stopped enabled=true
-      notify: shutdown_machine
+  notify: shutdown_machine
+      
   handlers:
     - name: shutdown_machine
       shell: shutdown -r now
