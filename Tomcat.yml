@@ -1,0 +1,12 @@
+---
+- name: Automatizacion apagado servidores con apache
+  hosts: Apache
+  become: True
+  tasks:
+    - name: Apagado servicio apache
+      service: name=httpd state=stopped enabled=true
+      notify: shutdown_machine
+      
+  handlers:
+    - name: shutdown_machine
+      shell: shutdown -r now
