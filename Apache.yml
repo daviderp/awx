@@ -1,10 +1,10 @@
 ---
-- name:Automatizacion apagado servidores con apache
+- name: Automatizacion apagado servidores con apache
   hosts: desarrollo apache
   become: True
   tasks:
     - name: Apagado servicio apache
-      servicie: name=httpd state=stopped enabled=true
+      service: name=httpd state=stopped enabled=true
       notify: shutdown_machine
     handlers:
       - name: shutdown_machine
